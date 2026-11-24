@@ -48,5 +48,14 @@
 # as it was; nothing else was changed. The same file is in OpenPMIx's
 # test/topologies.
 
+# frontier.xml is an HPE Cray EX235A compute node read by hwloc 2.11.2:
+# one AMD EPYC 7A53 socket, 64 cores with SMT2, four NUMA domains and eight
+# L3 caches. Each NUMA domain holds two MI250X GCD PCI functions and one
+# Slingshot (Cassini) NIC. The GPUs expose DRM card/render nodes but no
+# RSMI vendor identity, so GPU-class mapping must be rejected. Host name,
+# cgroup path, asset tags, MAC addresses and disk serials were replaced.
+# The allowed CPU and NUMA masks were expanded to the complete masks so
+# the fixture describes the whole node, not the capture process's cpuset.
+
 EXTRA_DIST = test-topo.xml test-topo2.xml turin-4gpu.xml turin-4gpu-nvml.xml \
-             slingshot.xml mi350-bcm57608.xml aws-p6-b200.xml
+             slingshot.xml mi350-bcm57608.xml aws-p6-b200.xml frontier.xml
